@@ -1,9 +1,6 @@
 class Solution:
     stack = []
 
-    def push(self, item):
-        self.stack.append(item)
-
     def pop_first(self):
         return self.stack.pop(0)
 
@@ -14,7 +11,7 @@ class Solution:
         return len(self.stack)
 
     def simplifyPath(self, path: str) -> str:
-        # Заполняем стек
+
         for i in path:
             self.stack.append(i)
 
@@ -47,7 +44,9 @@ class Solution:
             dataPath = dataPath[:len(dataPath)-1]
         if not dataPath.startswith('/'):
             dataPath = '/'+dataPath
-        print(dataPath)
+        print(f"Path: {dataPath}")
+        path = dataPath
+        return path
 
 
-Solution.simplifyPath(Solution, path='/home//foo')
+Solution.simplifyPath(Solution, path='./home/..//././.../foo//')
