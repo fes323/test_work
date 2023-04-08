@@ -1,13 +1,23 @@
 from collections.abc import Iterable
 
+# def intersection(*lists: Iterable[int]) -> list[int]:
+#     setLists = []
+#     for i in lists:
+#         setLists.append(set(i))
+#     finalSet = list(set.intersection(*[set(i) for i in setLists]))
+#     finalSet.sort()
+#
+#     return finalSet
+
 def intersection(*lists: Iterable[int]) -> list[int]:
-    setLists = []
-    for i in lists:
-        setLists.append(set(i))
-    finalSet = list(set.intersection(*[set(i) for i in setLists]))
-    finalSet.sort()
-    print(finalSet)
-    return finalSet
+    if not lists:
+        return []
+
+    set_lists = [set(l) for l in lists]
+    result_set = list(set.intersection(*set_lists))
+    result_set.sort()
+    print(result_set)
+    return sorted(result_set)
 
 test = [
      [1, 2, 3],
